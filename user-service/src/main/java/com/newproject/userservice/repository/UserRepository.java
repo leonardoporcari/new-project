@@ -2,10 +2,12 @@ package com.newproject.userservice.repository;
 
 import com.newproject.datatype.dto.Professor;
 import com.newproject.datatype.dto.Student;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserRepository {
     private List<Student> students = new ArrayList<>();
     private List<Professor> professors = new ArrayList<>();
