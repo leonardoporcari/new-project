@@ -1,7 +1,5 @@
 spring:
   application:
-    name: user-service
+    name: registration-service
   config:
     import: "optional:configserver:http://localhost:8088"
-
-
