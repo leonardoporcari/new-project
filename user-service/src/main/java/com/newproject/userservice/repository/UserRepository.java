@@ -31,7 +31,7 @@ public class UserRepository {
         return p;
     }
 
-    public Professor findProById(Integer id){
+    public Professor findProfById(Integer id){
         return professors.stream()
                 .filter(professor ->professor.getId().equals(id))
                 .findFirst()
