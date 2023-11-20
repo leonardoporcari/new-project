@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Professor {
-    private int id;
+    private Integer id;
     private String name;
     private List<Course> coursesHeld = new ArrayList<>();
 
