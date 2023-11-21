@@ -1,5 +1,6 @@
 package com.newproject.userservice.kafka;
 
+import com.newproject.datatype.dto.EnrollmentEvent;
 import com.newproject.userservice.repository.UserRepository;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

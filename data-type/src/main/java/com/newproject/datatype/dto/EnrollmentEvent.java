@@ -1,7 +1,4 @@
-package com.newproject.userservice.kafka;
-
-import com.newproject.datatype.dto.Course;
-import com.newproject.datatype.dto.Student;
+package com.newproject.datatype.dto;
 
 public class EnrollmentEvent {
     private Student stud;
