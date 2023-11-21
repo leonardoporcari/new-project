@@ -41,13 +41,21 @@ public class CourseController {
     public Course addCourse(@RequestBody Course c, Professor p){
         LOGGER.info("Add course");
         return repository.addCourse(c,p);
+        //TODO: use another producer to inform user service
     }
 
+
+
+    /*
     @PostMapping
     public Course removeCourse(@RequestBody Course c){
         LOGGER.info("Remove course");
         return repository.removeCourse(c);
+        //TODO: use another producer to inform user service
+        HAVING 2 POSTMAPPING METHODS IS BAD
     }
+
+     */
 
 
 }

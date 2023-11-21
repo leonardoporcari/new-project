@@ -43,7 +43,7 @@ public class EnrollmentConsumer implements Runnable {
 
         //TODO: CHECK JSON DESERIALISER
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, new JsonDeserializer<EnrollmentEvent>());
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
         KafkaConsumer<String, EnrollmentEvent> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList(defaultTopic));
