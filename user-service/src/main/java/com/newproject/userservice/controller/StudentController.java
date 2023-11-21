@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/user/student")
@@ -24,7 +25,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> findAllStudents(){
+    public Set<Student> findAllStudents(){
         LOGGER.info("Student find");
         return repository.findAllStudents();
     }

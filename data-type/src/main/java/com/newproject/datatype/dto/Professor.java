@@ -9,14 +9,15 @@ import java.util.List;
 public class Professor {
     private Integer id;
     private String name;
-    private List<Course> coursesHeld = new ArrayList<>();
+    //private List<Course> coursesHeld = new ArrayList<>();
 
     public Professor(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public void addCourse(Course c){
-        coursesHeld.add(c);
+    @Override
+    public String toString() {
+        return "Professor Name: " + name + "\nProfessor Id: " + id;
     }
 }

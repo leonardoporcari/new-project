@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/user/professor")
@@ -25,12 +26,13 @@ public class ProfessorController {
     }
 
     @GetMapping
-    public List<Professor> findAllProfessor(){
+    public Set<Professor> findAllProfessor(){
         LOGGER.info("Professor find");
         return repository.findAllProfessors();
     }
 
-    @GetMapping("/{id}")
+    //TODO: check if the print is correctly shown  although it should e printed client side
+    @GetMapping("/{id}") //Personal information about professor
     public Professor findProfById(@PathVariable("id") Integer id){
         LOGGER.info("Professor find: id={}", id);
         return repository.findProfById(id);

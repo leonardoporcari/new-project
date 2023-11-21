@@ -1,47 +1,57 @@
 package com.newproject.userservice.repository;
 
+import com.newproject.datatype.dto.Course;
 import com.newproject.datatype.dto.Professor;
 import com.newproject.datatype.dto.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class UserRepository {
-    private List<Student> students = new ArrayList<>();
-    private List<Professor> professors = new ArrayList<>();
+    private HashMap<Student, List<Course>> studentsCourses= new HashMap<>();
+    private HashMap<Professor, List<Course>> professorsCourses= new HashMap<>();
 
     public Student addStudent(Student s){
-        students.add(s);
+        studentsCourses.put(s, new ArrayList<Course>());
         return s;
     }
 
     public Student findStudById(Integer id){
-        return students.stream()
+        return studentsCourses.keySet().stream()
                 .filter(student -> student.getId().equals(id))
                 .findFirst()
-                .orElseThrow();
+                .orElse(null);
     }
 
-    public List<Student> findAllStudents(){
-        return students;
+    public Set<Student> findAllStudents(){
+        return studentsCourses.keySet();
+    }
+
+    public void addCourseForStud(Student s, Course c){
+        //maybe useless if, but for now i keep it
+        if(!studentsCourses.containsKey(s)) studentsCourses.put(s, new ArrayList<Course>());
+        studentsCourses.get(s).add(c);
     }
 
     public Professor addProfessor(Professor p){
-        professors.add(p);
+        professorsCourses.put(p, new ArrayList<Course>());
         return p;
     }
 
     public Professor findProfById(Integer id){
-        return professors.stream()
+        Professor p = professorsCourses.keySet().stream()
                 .filter(professor ->professor.getId().equals(id))
                 .findFirst()
-                .orElseThrow();
+                .orElse(null);
+        System.out.println(p + "\nCourses held: "+ professorsCourses.get(p));
+        return p;
     }
 
-    public List<Professor> findAllProfessors(){
-        return professors;
+    public Set<Professor> findAllProfessors(){
+        return professorsCourses.keySet();
     }
-
 }

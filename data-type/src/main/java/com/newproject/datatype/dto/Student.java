@@ -16,8 +16,4 @@ public class Student {
         this.id = id;
         this.name = name;
     }
-
-    public void addCourse(Course c){
-        coursesAttended.add(c);
-    }
 }
